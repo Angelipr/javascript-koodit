@@ -1,4 +1,4 @@
-// file.js
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form');
   const resultsContainer = document.createElement('div');
@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(resultsContainer);
 
   form.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent the form from submitting normally
-
+    event.preventDefault();
     const query = document.querySelector('#query').value;
     if (!query) {
       console.error('Please enter a search term.');
@@ -15,10 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      // Clear previous results
       resultsContainer.innerHTML = '';
 
-      // Fetch TV series data from the TVMaze API
       const apiUrl = `https://api.tvmaze.com/search/shows?q=${encodeURIComponent(query)}`;
       const response = await fetch(apiUrl);
 
